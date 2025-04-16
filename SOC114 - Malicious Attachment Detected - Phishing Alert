@@ -1,0 +1,53 @@
+	
+EventID :
+45
+Event Time :
+Jan, 31, 2021, 03:48 PM
+Rule :
+SOC114 - Malicious Attachment Detected - Phishing Alert
+Level :
+Security Analyst
+SMTP Address :
+49.234.43.39
+Source Address :
+accounting@cmail.carleton.ca
+Destination Address :
+richard@letsdefend.io
+E-mail Subject :
+Invoice
+Device Action :
+Allowed
+
+is the smtp address internal?
+n
+is it suspicious?
+y via virustotal marked suspicious and malware
+Autonomous System Label:
+Shenzhen Tencent Computer Systems Company Limited 
+country:
+China
+any attachments?
+y
+
+attachments:
+1)44e65a641fb970031c5efed324676b5018803e0a768608d3e186152102615795.xlsx
+MD5:c9ad9506bcccfaa987ff9fc11b91698d
+*found malware/trojan/exploit by virustotal(sources:fortinet,escan,avast,Kaspersky)
+ANALYZING ON A SANDBOX TO EXTRACT MORE INFO:
+1) connection:
+ip:
+192.168.100.255
+urls:
+ http://www.andaluciabeach.net
+ associated remcosrat:
+ http://andaluciabeach.net/image/network.exe:
+ 101bfb7953ee39065a917a37670cc43836cf5c0a938082f4038515efebddcc04.exe
+ md5:
+ b435d3782a898407600abf7d6995cc66 
+
+is the user affected/the attack has been launched?
+y
+enough evidence via endpoint monitoring we know that the user has visited the malicious website made connections with xls document and it is highly possible that the malware has been launched in the host machine.
+
+host communicated to the ip when he visited http://www.andaluciabeach.net:
+5.135.143.133

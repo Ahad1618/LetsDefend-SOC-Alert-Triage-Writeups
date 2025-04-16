@@ -1,0 +1,70 @@
+EventID :
+257
+Event Time :
+May, 13, 2024, 09:22 AM
+Rule :
+SOC282 - Phishing Alert - Deceptive Mail Detected
+Level :
+Security Analyst
+SMTP Address :
+103.80.134.63
+Source Address :
+free@coffeeshooop.com
+Destination Address :
+Felix@letsdefend.io
+E-mail Subject :
+Free Coffee Voucher
+Device Action :
+Allowed
+Show Hint
+
+is ip/smtp address internal?
+n
+ip/smptp address reputaion?
+*found malicious and used for phishing according to virustotal.
+sources:webroot 
+alphamountain.ai
+
+is the email accessed?
+y
+
+are there any c2c connections made?
+yes,felix have downloaded the payload file.
+-37.120.233.226
+found malicious and a c2c server and an asyncrat via virustotal and threateintel.
+
+
+
+*Autonomous System Label
+LG DACOM Corporation
+
+*country
+Korea
+
+ATTACHMENTS:
+1)6f33ae4bf134c49faa14517a275c039ca1818b24fc2304649869e399ab2fb389
+59cbd215-76ea-434d-93ca-4d6aec3bac98-free-coffee (1).zip
+
+*Trojan detected through virustotal(sources:BitDefender,Microsoft,Arcabit)
+extremely malicious
+
+MD5-HASH:
+73f0f77181e1f06a9dbc41ea9e7a03fe
+
+
+EXTRACTED FROM THE ZIP FILE:
+2)cd903ad2211cf7d166646d75e57fb866000f4a3b870b5ec759929be2fd81d334
+dllhost.exe
+
+MD5-hash:
+961d8e0f1ec3c196499bfcbd0a9d19fa
+
+*detected as a malware specifically a variant of trojan and a backdoor malware.
+sources: Fortinet,Bitdefender,Elastic and Avast
+
+NOTE: the host downloaded the malicious file and a backdoor connection with the c2c server was detected right after the host executing the file.
+therefore,the machine has been contained.And it has not been found making connections with the internal machines other than itself.
+
+
+
+

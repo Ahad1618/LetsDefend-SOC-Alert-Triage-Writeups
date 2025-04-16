@@ -1,0 +1,38 @@
+
+EventID :
+83
+Event Time :
+Mar, 21, 2021, 01:02 PM
+Rule :
+SOC119 - Proxy - Malicious Executable File Detected
+Level :
+Security Analyst
+Source Address :
+172.16.17.5
+Source Hostname :
+SusieHost
+Destination Address :
+51.195.68.163
+Destination Hostname :
+win-rar.com
+Username :
+Susie
+Request URL :
+https://www.win-rar.com/postdownload.html?&L=0&Version=32bit
+User Agent :
+Chrome - Windows
+Device Action :
+Allowed
+
+*NO AGENT CONNECTED(EDR)
+
+*IS THE URL MALICIOUS?
+-static analysis(VIRUSTOTAL):
+not found malicious
+-dynamic analysis(anyrun):
+not found malicious
+
+
+
+
+

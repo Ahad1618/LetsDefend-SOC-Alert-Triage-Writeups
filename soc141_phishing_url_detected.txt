@@ -1,0 +1,39 @@
+	
+EventID :
+86
+Event Time :
+Mar, 22, 2021, 09:23 PM
+Rule :
+SOC141 - Phishing URL Detected
+Level :
+Security Analyst
+Source Address :
+172.16.17.49
+Source Hostname :
+EmilyComp
+Destination Address :
+91.189.114.8
+Destination Hostname :
+mogagrocol.ru
+Username :
+ellie
+Request URL :
+http://mogagrocol.ru/wp-content/plugins/akismet/fv/index.php?email=ellie@letsdefend.io
+User Agent :
+Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36
+Device Action :
+Allowed
+
+*NOTE:
+looks like the host machine has tried to access the malicious url.
+
+*is the connection made/host has successfully visited the malicious url?
+yes according to log management. 
+
+*is the url malicious?
+-virustotal(static analysis):
+found malicious/phishing sources:BitDefender,Sophos and Fortinet
+
+-dynamic analysis:
+1-the url has been found malicious/forbidden
+2-Spearphishing Link
