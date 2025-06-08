@@ -1,0 +1,22 @@
+EventID :
+82
+Event Time :
+Mar, 21, 2021, 12:26 PM
+Rule :
+SOC140 - Phishing Mail Detected - Suspicious Task Scheduler
+Level :
+Security Analyst
+SMTP Address :
+189.162.189.159
+Source Address :
+aaronluo@cmail.carleton.ca
+Destination Address :
+mark@letsdefend.io
+E-mail Subject :
+COVID19 Vaccine
+Device Action :
+Blocked
+
+
+Analyst note:
+Phishing email  cotaining malicious payload specifically a pdf document that is marked  as a trojan/malware by virustotal.the attack was blocked and was not acceseed by the host.

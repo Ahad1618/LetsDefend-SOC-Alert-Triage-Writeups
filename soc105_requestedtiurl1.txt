@@ -1,0 +1,37 @@
+EventID :
+75
+Event Time :
+Mar, 07, 2021, 05:47 PM
+Rule :
+SOC105 - Requested T.I. URL address
+Level :
+Security Analyst
+Source Address :
+10.15.15.12
+Source Hostname :
+MarksPhone
+Destination Address :
+67.199.248.10
+Destination Hostname :
+bit.ly
+Username :
+Mark
+Request URL :
+https://bit.ly/TAPSCAN
+User Agent :
+Mozilla/5.0 (Windows NT 5.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36
+Device Action :
+Allowed
+
+url REPORT(Anyrun):
+-no suspicious activity found
+url REPORT(Virustotal):
+-Not found Malicious
+
+*is the url has been accessed?
+yes,by looking at the log management it has been accessed.
+-machine contained
+
+Note:
+
+No iocs captured therefore not malicious

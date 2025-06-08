@@ -1,0 +1,38 @@
+	
+EventID :
+28
+Event Time :
+Oct, 29, 2020, 07:34 PM
+Rule :
+SOC105 - Requested T.I. URL address
+Level :
+Security Analyst
+Source Address :
+172.16.17.47
+Source Hostname :
+BillPRD
+Destination Address :
+115.99.150.132
+Username :
+Bill
+Request URL :
+http://115.99.150.132:56841/Mozi.m
+User Agent :
+Firewall Test - Dont Block
+Device Action :
+Blocked
+
+
+Analysis:
+
+Letsdefend Threat Intel:
+-detected as malware
+
+Virustotal:
+-found as a malware from sources like Sophos,BitDefender
+Anyrun:
+-malware detected causing malicious behaviour
+
+Note:
+Url has been detected as a malware by Virustotal Sources:Sophos,Bitdefender
+However,since the action is blocked no need containment of the host machine.

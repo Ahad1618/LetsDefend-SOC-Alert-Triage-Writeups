@@ -1,0 +1,43 @@
+EventID :
+16
+Event Time :
+Sep, 20, 2020, 10:54 PM
+Rule :
+SOC105 - Requested T.I. URL address
+Level :
+Security Analyst
+Source Address :
+172.16.17.47
+Source Hostname :
+BillPRD
+Destination Address :
+5.188.0.251
+Destination Hostname :
+pssd-ltdgroup.com
+Username :
+Mike01
+Request URL :
+https://pssd-ltdgroup.com
+User Agent :
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36 Edge/15.15063
+Device Action :
+Allowed
+
+Virustotal:
+-found malicious and malware by BitDefender and Fortinet
+-malicious domain:pssd-ltdgroup.com
+Urlhause:
+-detected as malware
+
+
+Check is there any interaction with TI data? You can use EDR and Log management
+-accessed
+
+Note:
+
+Virustotal:
+-found malicious and malware by BitDefender and Fortinet
+Urlhause:
+-detected as malware
+
+Also it has been Accessed and the Host has been contained.Further action suggested.

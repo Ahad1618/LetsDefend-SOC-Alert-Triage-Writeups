@@ -1,0 +1,73 @@
+	
+EventID :
+115
+Event Time :
+Feb, 25, 2022, 11:34 AM
+Rule :
+SOC165 - Possible SQL Injection Payload Detected
+Level :
+Security Analyst
+Hostname :
+WebServer1001
+Destination IP Address :
+172.16.17.18
+Source IP Address :
+167.99.169.17
+HTTP Request Method :
+GET
+Requested URL :
+https://172.16.17.18/search/?q=%22%20OR%201%20%3D%201%20--%20-
+User-Agent :
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1
+Alert Trigger Reason :
+Requested URL Contains OR 1 = 1
+Device Action :
+Allowed
+
+
+Payload(decoded):
+https://172.16.17.18/search/?q=" OR 1 = 1 -- -
+*is the query malicious?
+username equal to "" OR 1=1 will always be true therefore malicious query
+*is the ip adddress internal?
+ip is not internal(coming from outside the internal network like internet):
+*ownership(since not internal):
+ip-address ownership:DIGITALOCEAN-ASN
+*reputation of the ip-address? 
+ip address is malicious according to virustotal
+sources:alphasoc,Bitdefender and Malwareurl
+
+*are there other machines that have received request from the same ip address?
+no
+
+*multiple requests received to this machine?
+yes
+#1 https://172.16.17.18/search/?q=%22%20OR%201%20%3D%201%20--%20-
+Decode: https://172.16.17.18/search/?q=" OR 1 = 1 -- -
+#2 https://172.16.17.18/
+#3 https://172.16.17.18/search/?q=%27
+Decoded: https://172.16.17.18/search/?q='
+#4 https://172.16.17.18/search/?q=%27%20OR%20%271
+Decoded:https://172.16.17.18/search/?q='
+#5 https://172.16.17.18/search/?q=%27%20OR%20%27x%27%3D%27x
+Decoded:https://172.16.17.18/search/?q=' OR 'x'='x
+#6 https://172.16.17.18/search/?q=1%27%20ORDER%20BY%203--%2B
+Decoded:https://172.16.17.18/search/?q=1' ORDER BY 3--+
+
+
+*was the attack planned?
+no early emails received
+
+*direction of the traffic?
+internet to company network
+
+*was the attack successfull?
+N
+
+Analyst Notes:
+t was an sql injection attempt from a known malicious ip address proven through virustotal. The attack was unsuccessfull by looking at the response code of 500 we can deduce that
+
+
+
+
+

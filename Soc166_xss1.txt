@@ -1,0 +1,212 @@
+EventID :
+116
+Event Time :
+Feb, 26, 2022, 06:56 PM
+Rule :
+SOC166 - Javascript Code Detected in Requested URL
+Level :
+Security Analyst
+Hostname :
+WebServer1002
+Destination IP Address :
+172.16.17.17
+Source IP Address :
+112.85.42.13
+HTTP Request Method :
+GET
+Requested URL :
+https://172.16.17.17/search/?q=<$script>javascript:$alert(1)<$/script>
+User-Agent :
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1
+Alert Trigger Reason :
+Javascript code detected in URL
+Device Action :
+Allowed
+Show Hint
+
+INFORMATION(PROCESS):
+*multiple get requests to the same host from the same ip-address.
+possible xss attack
+
+1:
+Request URL
+
+https://172.16.17.17/
+User-Agent
+
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1
+Request Method
+
+GET
+Device Action
+
+Permitted
+HTTP Response Size:
+
+1024
+HTTP Response Status
+
+200
+2:
+Request URL
+
+https://172.16.17.17/about-us/
+User-Agent
+
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1
+Request Method
+
+GET
+Device Action
+
+Permitted
+HTTP Response Size:
+
+3531
+HTTP Response Status
+
+200
+3:
+Request URL
+
+https://172.16.17.17/search/?q=test
+User-Agent
+
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1
+Request Method
+
+GET
+Device Action
+
+Permitted
+HTTP Response Size:
+
+885
+HTTP Response Status
+
+200
+4:
+Request URL
+
+https://172.16.17.17/search/?q=prompt(8)
+User-Agent
+
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1
+Request Method
+
+GET
+Device Action
+
+Permitted
+HTTP Response Size:
+
+0
+HTTP Response Status
+
+302
+5:
+Request URL
+
+https://172.16.17.17/search/?q=<$img%20src%20=q%20onerror=prompt(8)$>
+User-Agent
+
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1
+Request Method
+
+GET
+Device Action
+
+Permitted
+HTTP Response Size:
+
+0
+HTTP Response Status
+
+302
+decoded url:
+https://172.16.17.17/search/?q=<$img src =q onerror=prompt(8)$>
+6:
+Request URL
+
+https://172.16.17.17/search/?q=<$svg><$script%20?>$alert(1)
+User-Agent
+
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1
+Request Method
+
+GET
+Device Action
+
+Permitted
+HTTP Response Size:
+
+0
+HTTP Response Status
+
+302
+decoded url:
+https://172.16.17.17/search/?q=<$svg><$script ?>$alert(1)
+7:
+Request URL
+
+https://172.16.17.17/search/?q=<$script>$for((i)in(self))eval(i)(1)<$/script>
+User-Agent
+
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1
+Request Method
+
+GET
+Device Action
+
+Permitted
+HTTP Response Size:
+
+0
+HTTP Response Status
+
+302
+decoded url:
+https://172.16.17.17/search/?q=<$script>$for((i)in(self))eval(i)(1)<$/script>
+8:
+Request URL
+
+https://172.16.17.17/search/?q=<$script>javascript:$alert(1)</script>
+User-Agent
+
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1
+Request Method
+
+GET
+Device Action
+
+Permitted
+HTTP Response Size:
+
+0
+HTTP Response Status
+
+302
+decoded url:
+https://172.16.17.17/search/?q=<$script>javascript:$alert(1)</script>
+
+
+*NOTE:
+seems like the attacker wants to inject the javascript code into the get reqeuests in order to perform a malicious activity.
+
+
+*is the ip address internal?
+n
+*is the ip-address malicious?
+yes,virustotal is the source
+-Autonomous System Label:
+CHINA UNICOM China169 Backbone
+
+*the attack was planned?
+n
+*is the attack successfull?
+n,by looking at the response sizes and the response code of 302 which means redirection of the requests.
+*need tier-2 escalation?
+n,since not successfull attack the request with the malicious script/payload was redirected.
+
+Analyst Note:
+by looking at the response sizes and the response code of 302 which means redirection of the requests.The attack was a failed attempt from a known malicious ip address owned by a chinese domain operating from china.However the attack was unsuccessfull and no need further tier-2 escalation
