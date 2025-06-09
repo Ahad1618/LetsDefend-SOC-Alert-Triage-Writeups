@@ -1,6 +1,6 @@
 # LetsDefend SOC Alert Triage Writeups
 
-This repository contains a collection of 23 detailed SOC (Security Operations Center) alert triage reports completed on the [LetsDefend](https://letsdefend.io) platform. LetsDefend provides a realistic SOC environment with integrated EDR, SIEM, logs, and threat intelligence, allowing hands-on experience with real-world scenarios.
+This repository contains a collection of detailed SOC (Security Operations Center) alert triage reports completed on the [LetsDefend](https://letsdefend.io) platform. LetsDefend provides a realistic SOC environment with integrated EDR, SIEM, logs, and threat intelligence, allowing hands-on experience with real-world scenarios.
 
 ## Contents
 
