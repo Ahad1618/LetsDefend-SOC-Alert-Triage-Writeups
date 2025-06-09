@@ -1,0 +1,125 @@
+ventID :
+77
+Event Time :
+Mar, 13, 2021, 08:20 PM
+Rule :
+SOC138 - Detected Suspicious Xls File
+Level :
+Security Analyst
+Source Address :
+172.16.17.56
+Source Hostname :
+Sofia
+File Name :
+ORDER SHEET & SPEC.xlsm
+File Hash :
+7ccf88c0bbe3b29bf19d877c4596a8d4
+File Size :
+2.66 Mb
+Device Action :
+Allowed
+File (Password:infected) :
+
+Payload:
+1)7ccf88c0bbe3b29bf19d877c4596a8d4.zip
+ -ORDER SHEET & SPEC.xlsm
+
+Static analysis:
+
+oletool result:
+
++----------+--------------------+---------------------------------------------+
+|Type      |Keyword             |Description                                  |
++----------+--------------------+---------------------------------------------+
+|AutoExec  |Auto_Open           |Runs when the Excel Workbook is opened       |
+|Suspicious|Open                |May open a file                              |
+|Suspicious|write               |May write to a file (if combined with Open)  |
+|Suspicious|Print #             |May write to a file (if combined with Open)  |
+|Suspicious|Kill                |May delete a file                            |
+|Suspicious|vbNormal            |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|run                 |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|ShellExecuteA       |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|SHELL32             |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|Create              |May execute file or a system command through |
+|          |                    |WMI                                          |
+|Suspicious|call                |May call a DLL using Excel 4 Macros (XLM/XLF)|
+|Suspicious|Lib                 |May run code from a DLL                      |
+|Suspicious|exec                |May run an executable file or a system       |
+|          |                    |command using Excel 4 Macros (XLM/XLF)       |
+|Suspicious|Hex Strings         |Hex-encoded strings were detected, may be    |
+|          |                    |used to obfuscate strings (option --decode to|
+|          |                    |see all)                                     |
+|Suspicious|Base64 Strings      |Base64-encoded strings were detected, may be |
+|          |                    |used to obfuscate strings (option --decode to|
+|          |                    |see all)                                     |
+|IOC       |SHELL32.dll         |Executable file name                         |
+|Hex String|vVEFV               |7656454656                                   |
++----------+--------------------+---------------------------------------------+
+IOC       |SHELL32.dll         |Executable file name                         |
+|Hex String|'\x00\x02\x08\x19'  |00020819                                     |
+|Hex String|'\x00\x00\x00\x00\x0|000000000046                                 |
+|          |0F'                 |                                             |
+|Hex String|'\x00\x02\x08 '     |00020820                                     |
+|Hex String|''              |eeeeeeee                                     |
+|Hex String|''              |ffffffff                                     |
+|Hex String|'#B4'              |e1234234                                     |
+|Hex String|'BT'              |e2428354                                     |
+|Hex String|'gCC'              |e3674343                                     |
+|Hex String|'HSf'              |e4485366                                     |
+|Hex String|vVEFV               |7656454656                                   |
+|Base64    |'6^'               |Note                                         |
+|String    |                    |                                             |
+|Base64    |'j\u05ce'           |ateO                                         |
+|String    |                    |                                             |
+|Base64    |'\x0e.'            |Docu                                         |
+|String    |                    |                                             |
+|Base64    |''               |ment                                         |
+|String    |                    |                                             |
+|Base64    |'y^'               |eate                                         |
+|String    |                    |                                             |
+|Base64    |'6^'               |Node                                         |
+|String    |                    |                                             |
+|Base64    |'\x0e.'         |Document                                     |
+|String    |                    |                                             |
+|Base64    |'\x12[\x1e'         |Else                                         |
+|String    |                    |                                             |
+|Base64    |'EMm'             |ReadText                                     |
+|String    |                    |                                             |
+|Base64    |'\x16)^K+-zc-'   |FileSystemObject                             |
+|String    |                    |                                             |
+|Base64    |'\x16)^'            |File                                         |
+|String    |                    |                                             |
+|Base64    |''               |save                                         |
+|String    |                    |                                             |
+|Base64    |'zm'               |em32                                         |
+|String    |                    |                                             |
++----------+--------------------+---------------------------------------------+
+
+Virustotal results:
+cve number:
+cve-2017-11882
+MD5:
+7ccf88c0bbe3b29bf19d877c4596a8d4 
+found malicious?
+-extremely malicious,marked as trojan-dropper/VBA-macros by Kaspersky
+-marked as Troj/DocDl-ACAO by Sophos
+-Fortinet:VBA/CoinMiner.ACAO!tr                          
+-Connections:209.197.3.8
+-maliciou url: 	https://multiwaretecnologia.com.br/js/Podaliri4.exe 
+-malcious domains:
+ 1)wealthybillionaire.ddns.net
+ 2)multiwaretecnologia.com.br
+ 
+Dynamic analysis:
+1)found malicious EXCEL.EXE FOUND SPEARSHIPING
+2)Image1.emf
+
+*is the C2C server has been connected?
+yes the source has made a connection with ip: 177.53.143.89 which has been found linked to the xlsfile according to virustotal
+
+
+                         
