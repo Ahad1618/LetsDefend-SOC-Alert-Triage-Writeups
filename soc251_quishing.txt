@@ -1,0 +1,52 @@
+EventID :
+214
+Event Time :
+Jan, 01, 2024, 12:37 PM
+Rule :
+SOC251 - Quishing Detected (QR Code Phishing)
+Level :
+Security Analyst
+SMTP Address :
+158.69.201.47
+Source Address :
+security@microsecmfa.com
+Destination Address :
+Claire@letsdefend.io
+E-mail Subject :
+New Year's Mandatory Security Update: Implementing Multi-Factor Authentication (MFA)
+Device Action :
+Allowed
+Show Hint
+
+*virustotal results:
+-investigating the sender ip:
+flagged as malicious,phishing and quishing by crdf,ESET and bitdefender
+-investigating sender email address domain:
+
+-is there any reconaissance activity before the attack?
+yes there has been an exchange log found at 12 pm therefore phishing reconaissance
+
+-is the attacker ip external?
+yes
+
+-is the attacker ip suspicious/malicious?
+ yes the ip is suspicious via virustotal & abuseip
+-is the smtp ip external?
+ -yes,canadian ip identified by abuseip
+-no more than one affected systems?
+ yes,the victim host has not visited the malicious phishing website directly (identified by looking at the browser history of the endpoint security) however claire might have visited using her mobile since link is in the form of qr code.
+ no other system except for claire has been affected since in log management we have found no other information
+-containment of victim host?
+yes as a precautionary step we must contain the host
+
+-future precautionary steps:
+1-block malicious sender ip "158.69.201.47"
+2-always wait for the analyst to check for the daily email check before opening the inbox.
+3-avoid using any device outside the letsdefend network eg:claire's mobile phone 
+Note:
+quishing attempt at the victim.Recoinaissance has been done by phishing whether the user has reached the malicious website or not is not known as the website link is in a qr code format and must have been captured by a mobile phone as stated in the email.also the smtp ip was found malicious by virustotal and analyzing the qr code transalated ip in a sandbox enviroment. No more devices in the network has been affected the victim has been contained.Recommended to take further action.
+
+
+
+
+
