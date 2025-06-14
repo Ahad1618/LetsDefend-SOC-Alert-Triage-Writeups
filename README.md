@@ -47,5 +47,3 @@ This repository serves as:
 - A **learning resource** for aspiring SOC analysts, blue teamers, and cybersecurity students
 - A **reference** for detection and investigation workflows
 
-## Folder Structure
-
